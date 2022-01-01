@@ -6,10 +6,10 @@ package mocks
 import (
 	list "container/list"
 
-	communicator "github.com/aws/SSMCLI/src/communicator"
-	datachannel "github.com/aws/SSMCLI/src/datachannel"
-	log "github.com/aws/SSMCLI/src/log"
-	message "github.com/aws/SSMCLI/src/message"
+	communicator "github.com/fibanez/session-manager-plugin/src/communicator"
+	datachannel "github.com/fibanez/session-manager-plugin/src/datachannel"
+	log "github.com/fibanez/session-manager-plugin/src/log"
+	message "github.com/fibanez/session-manager-plugin/src/message"
 	mock "github.com/stretchr/testify/mock"
 )
 

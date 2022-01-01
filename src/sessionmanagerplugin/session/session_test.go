@@ -19,9 +19,9 @@ import (
 	"fmt"
 	"testing"
 
-	wsChannelMock "github.com/aws/SSMCLI/src/communicator/mocks"
-	dataChannelMock "github.com/aws/SSMCLI/src/datachannel/mocks"
-	"github.com/aws/SSMCLI/src/log"
+	wsChannelMock "github.com/fibanez/session-manager-plugin/src/communicator/mocks"
+	dataChannelMock "github.com/fibanez/session-manager-plugin/src/datachannel/mocks"
+	"github.com/fibanez/session-manager-plugin/src/log"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

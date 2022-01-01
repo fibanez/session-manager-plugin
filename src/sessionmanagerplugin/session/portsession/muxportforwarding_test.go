@@ -19,9 +19,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/aws/SSMCLI/src/datachannel"
-	"github.com/aws/SSMCLI/src/log"
-	"github.com/aws/SSMCLI/src/message"
+	"github.com/fibanez/session-manager-plugin/src/datachannel"
+	"github.com/fibanez/session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/message"
 	"github.com/stretchr/testify/assert"
 )
 

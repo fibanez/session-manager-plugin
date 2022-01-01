@@ -15,7 +15,7 @@
 package message
 
 import (
-	"github.com/aws/SSMCLI/src/log"
+	"github.com/fibanez/session-manager-plugin/src/log"
 	"github.com/twinj/uuid"
 )
 

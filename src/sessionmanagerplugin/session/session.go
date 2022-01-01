@@ -21,14 +21,14 @@ import (
 	"io"
 	"os"
 
-	"github.com/aws/SSMCLI/src/datachannel"
-	"github.com/aws/SSMCLI/src/log"
-	"github.com/aws/SSMCLI/src/message"
-	"github.com/aws/SSMCLI/src/retry"
-	"github.com/aws/SSMCLI/src/sdkutil"
-	"github.com/aws/SSMCLI/src/sessionmanagerplugin/session/sessionutil"
-	"github.com/aws/SSMCLI/src/version"
 	"github.com/aws/aws-sdk-go/service/ssm"
+	"github.com/fibanez/session-manager-plugin/src/datachannel"
+	"github.com/fibanez/session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/message"
+	"github.com/fibanez/session-manager-plugin/src/retry"
+	"github.com/fibanez/session-manager-plugin/src/sdkutil"
+	"github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
+	"github.com/fibanez/session-manager-plugin/src/version"
 	"github.com/twinj/uuid"
 )
 

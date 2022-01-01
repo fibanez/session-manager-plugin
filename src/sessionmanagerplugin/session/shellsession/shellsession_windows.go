@@ -21,9 +21,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/aws/SSMCLI/src/log"
-	"github.com/aws/SSMCLI/src/message"
 	"github.com/eiannone/keyboard"
+	"github.com/fibanez/session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/message"
 )
 
 // Byte array for key inputs

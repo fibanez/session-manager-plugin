@@ -19,9 +19,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/aws/SSMCLI/src/config"
-	"github.com/aws/SSMCLI/src/log"
-	"github.com/aws/SSMCLI/src/websocketutil"
+	"github.com/fibanez/session-manager-plugin/src/config"
+	"github.com/fibanez/session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/websocketutil"
 	"github.com/gorilla/websocket"
 )
 
