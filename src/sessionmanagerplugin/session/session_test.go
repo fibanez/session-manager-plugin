@@ -19,9 +19,9 @@ import (
 	"fmt"
 	"testing"
 
-	wsChannelMock "github.com/fibanez/session-manager-plugin/src/communicator/mocks"
-	dataChannelMock "github.com/fibanez/session-manager-plugin/src/datachannel/mocks"
-	"github.com/fibanez/session-manager-plugin/src/log"
+	wsChannelMock "session-manager-plugin/src/communicator/mocks"
+	dataChannelMock "session-manager-plugin/src/datachannel/mocks"
+	"session-manager-plugin/src/log"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

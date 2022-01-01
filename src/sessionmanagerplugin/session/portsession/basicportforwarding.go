@@ -22,12 +22,12 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/fibanez/session-manager-plugin/src/config"
-	"github.com/fibanez/session-manager-plugin/src/log"
-	"github.com/fibanez/session-manager-plugin/src/message"
-	"github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session"
-	"github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
-	"github.com/fibanez/session-manager-plugin/src/version"
+	"session-manager-plugin/src/config"
+	"session-manager-plugin/src/log"
+	"session-manager-plugin/src/message"
+	"session-manager-plugin/src/sessionmanagerplugin/session"
+	"session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
+	"session-manager-plugin/src/version"
 )
 
 // BasicPortForwarding is type of port session

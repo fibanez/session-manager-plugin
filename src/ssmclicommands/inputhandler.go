@@ -20,7 +20,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/fibanez/session-manager-plugin/src/ssmclicommands/utils"
+	"session-manager-plugin/src/ssmclicommands/utils"
 	"github.com/twinj/uuid"
 )
 

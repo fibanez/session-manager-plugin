@@ -23,14 +23,14 @@ import (
 
 	sdkSession "github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ssm"
-	"github.com/fibanez/session-manager-plugin/src/datachannel"
-	"github.com/fibanez/session-manager-plugin/src/jsonutil"
-	"github.com/fibanez/session-manager-plugin/src/log"
-	"github.com/fibanez/session-manager-plugin/src/sdkutil"
-	"github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session"
-	_ "github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session/portsession"
-	_ "github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session/shellsession"
-	"github.com/fibanez/session-manager-plugin/src/ssmclicommands/utils"
+	"session-manager-plugin/src/datachannel"
+	"session-manager-plugin/src/jsonutil"
+	"session-manager-plugin/src/log"
+	"session-manager-plugin/src/sdkutil"
+	"session-manager-plugin/src/sessionmanagerplugin/session"
+	_ "session-manager-plugin/src/sessionmanagerplugin/session/portsession"
+	_ "session-manager-plugin/src/sessionmanagerplugin/session/shellsession"
+	"session-manager-plugin/src/ssmclicommands/utils"
 	"github.com/twinj/uuid"
 )
 

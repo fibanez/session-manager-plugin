@@ -17,7 +17,7 @@ package websocketutil
 import (
 	"errors"
 
-	"github.com/fibanez/session-manager-plugin/src/log"
+	"session-manager-plugin/src/log"
 	"github.com/gorilla/websocket"
 )
 

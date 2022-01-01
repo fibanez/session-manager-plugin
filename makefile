@@ -7,7 +7,7 @@ GOOS?=$(shell go env GOOS)
 
 GO_SPACE?=$(CURDIR)
 GOTEMPPATH?=$(GO_SPACE)/build/private
-GOTEMPCOPYPATH?=$(GOTEMPPATH)/src/github.com/fibanez/session-manager-plugin
+GOTEMPCOPYPATH?=$(GOTEMPPATH)/src/session-manager-plugin
 GOPATH:=$(GOTEMPPATH):$(GO_SPACE)/vendor:$(GOPATH)
 
 export GOPATH
@@ -71,9 +71,9 @@ pre-release:
 .PHONY: quick-test
 quick-test:
 	# if you want to test a specific package, you can add the package name instead of the dots. Sample below
-	# go test -gcflags "-N -l" github.com/fibanez/session-manager-plugin/src/datachannel
+	# go test -gcflags "-N -l" session-manager-plugin/src/datachannel
 	go clean -testcache
-	go test -cover -gcflags "-N -l" github.com/fibanez/session-manager-plugin/src/...
+	go test -cover -gcflags "-N -l" session-manager-plugin/src/...
 
 .PHONY: create-package-folder
 create-package-folder:

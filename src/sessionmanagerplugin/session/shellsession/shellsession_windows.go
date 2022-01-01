@@ -22,8 +22,8 @@ import (
 	"time"
 
 	"github.com/eiannone/keyboard"
-	"github.com/fibanez/session-manager-plugin/src/log"
-	"github.com/fibanez/session-manager-plugin/src/message"
+	"session-manager-plugin/src/log"
+	"session-manager-plugin/src/message"
 )
 
 // Byte array for key inputs

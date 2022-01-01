@@ -17,8 +17,8 @@ package version
 import (
 	"testing"
 
-	"github.com/fibanez/session-manager-plugin/src/config"
-	"github.com/fibanez/session-manager-plugin/src/log"
+	"session-manager-plugin/src/config"
+	"session-manager-plugin/src/log"
 	"github.com/stretchr/testify/assert"
 )
 

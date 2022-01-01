@@ -19,8 +19,8 @@ import (
 	sdkSession "github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/kms"
 	"github.com/aws/aws-sdk-go/service/kms/kmsiface"
-	"github.com/fibanez/session-manager-plugin/src/log"
-	"github.com/fibanez/session-manager-plugin/src/sdkutil"
+	"session-manager-plugin/src/log"
+	"session-manager-plugin/src/sdkutil"
 )
 
 // KMSKeySizeInBytes is the key size that is fetched from KMS. 64 bytes key is split into two halves.

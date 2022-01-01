@@ -23,8 +23,8 @@ import (
 	"net"
 	"os"
 
-	"github.com/fibanez/session-manager-plugin/src/log"
-	"github.com/fibanez/session-manager-plugin/src/message"
+	"session-manager-plugin/src/log"
+	"session-manager-plugin/src/message"
 )
 
 type DisplayMode struct {

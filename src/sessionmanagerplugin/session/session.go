@@ -22,13 +22,13 @@ import (
 	"os"
 
 	"github.com/aws/aws-sdk-go/service/ssm"
-	"github.com/fibanez/session-manager-plugin/src/datachannel"
-	"github.com/fibanez/session-manager-plugin/src/log"
-	"github.com/fibanez/session-manager-plugin/src/message"
-	"github.com/fibanez/session-manager-plugin/src/retry"
-	"github.com/fibanez/session-manager-plugin/src/sdkutil"
-	"github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
-	"github.com/fibanez/session-manager-plugin/src/version"
+	"session-manager-plugin/src/datachannel"
+	"session-manager-plugin/src/log"
+	"session-manager-plugin/src/message"
+	"session-manager-plugin/src/retry"
+	"session-manager-plugin/src/sdkutil"
+	"session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
+	"session-manager-plugin/src/version"
 	"github.com/twinj/uuid"
 )
 
