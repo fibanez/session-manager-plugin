@@ -410,7 +410,7 @@ func putBytes(log log.T, byteArray []byte, offsetStart int, offsetEnd int, input
 
 // putUuid puts the 128 bit uuid to an array of bytes starting from the offset.
 func putUuid(log log.T, byteArray []byte, offset int, input uuid.UUID) (err error) {
-	if *input == nil {
+	if input == nil {
 		log.Error("putUuid failed: input is null.")
 		return errors.New("putUuid failed: input is null.")
 	}
