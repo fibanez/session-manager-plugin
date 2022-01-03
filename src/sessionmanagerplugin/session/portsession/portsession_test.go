@@ -24,6 +24,7 @@ import (
 	"session-manager-plugin/src/jsonutil"
 	"session-manager-plugin/src/log"
 	"session-manager-plugin/src/message"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

@@ -34,6 +34,7 @@ import (
 	"session-manager-plugin/src/message"
 	"session-manager-plugin/src/sessionmanagerplugin/session"
 	"session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
+
 	"github.com/xtaci/smux"
 	"golang.org/x/sync/errgroup"
 )
@@ -86,7 +87,8 @@ func (p *MuxPortForwarding) Stop() {
 		p.muxClient.close()
 	}
 	p.cleanUp()
-	os.Exit(0)
+	// FI
+	//os.Exit(0)
 }
 
 // InitializeStreams initializes i/o streams
@@ -187,7 +189,8 @@ func (p *MuxPortForwarding) handleControlSignals(log log.T) {
 		if err := p.session.DataChannel.SendFlag(log, message.TerminateSession); err != nil {
 			log.Errorf("Failed to send TerminateSession flag: %v", err)
 		}
-		fmt.Fprintf(os.Stdout, "\n\nExiting session with sessionId: %s.\n\n", p.sessionId)
+		// FI
+		//fmt.Fprintf(os.Stdout, "\n\nExiting session with sessionId: %s.\n\n", p.sessionId)
 		p.Stop()
 	}()
 }
@@ -246,8 +249,9 @@ func (p *MuxPortForwarding) handleClientConnections(log log.T, ctx context.Conte
 	log.Infof(displayMsg)
 	fmt.Printf(displayMsg)
 
-	log.Infof("Waiting for connections...\n")
-	fmt.Printf("\nWaiting for connections...\n")
+	// FI
+	//log.Infof("Waiting for connections...\n")
+	//fmt.Printf("\nWaiting for connections...\n")
 
 	var once sync.Once
 	for {

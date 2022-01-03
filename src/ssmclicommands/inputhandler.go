@@ -21,6 +21,7 @@ import (
 	"strings"
 
 	"session-manager-plugin/src/ssmclicommands/utils"
+
 	"github.com/twinj/uuid"
 )
 

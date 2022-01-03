@@ -21,8 +21,6 @@ import (
 	"html/template"
 	"strings"
 
-	sdkSession "github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/ssm"
 	"session-manager-plugin/src/datachannel"
 	"session-manager-plugin/src/jsonutil"
 	"session-manager-plugin/src/log"
@@ -31,6 +29,9 @@ import (
 	_ "session-manager-plugin/src/sessionmanagerplugin/session/portsession"
 	_ "session-manager-plugin/src/sessionmanagerplugin/session/shellsession"
 	"session-manager-plugin/src/ssmclicommands/utils"
+
+	sdkSession "github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/ssm"
 	"github.com/twinj/uuid"
 )
 

@@ -31,6 +31,7 @@ import (
 	"session-manager-plugin/src/message"
 	"session-manager-plugin/src/sessionmanagerplugin/session"
 	"session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

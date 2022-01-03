@@ -27,8 +27,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/kms/kmsiface"
 	"session-manager-plugin/src/communicator"
 	"session-manager-plugin/src/config"
 	"session-manager-plugin/src/encryption"
@@ -36,6 +34,9 @@ import (
 	"session-manager-plugin/src/message"
 	"session-manager-plugin/src/service"
 	"session-manager-plugin/src/version"
+
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/service/kms/kmsiface"
 	"github.com/gorilla/websocket"
 	"github.com/twinj/uuid"
 )

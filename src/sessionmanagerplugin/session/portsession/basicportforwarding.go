@@ -61,7 +61,8 @@ func (p *BasicPortForwarding) Stop() {
 	if p.stream != nil {
 		(*p.stream).Close()
 	}
-	os.Exit(0)
+	// FI
+	//os.Exit(0)
 }
 
 // InitializeStreams establishes connection and initializes the stream

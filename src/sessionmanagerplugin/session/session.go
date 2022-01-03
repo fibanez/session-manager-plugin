@@ -19,9 +19,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"os"
 
-	"github.com/aws/aws-sdk-go/service/ssm"
 	"session-manager-plugin/src/datachannel"
 	"session-manager-plugin/src/log"
 	"session-manager-plugin/src/message"
@@ -29,6 +27,8 @@ import (
 	"session-manager-plugin/src/sdkutil"
 	"session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
 	"session-manager-plugin/src/version"
+
+	"github.com/aws/aws-sdk-go/service/ssm"
 	"github.com/twinj/uuid"
 )
 
@@ -190,7 +190,8 @@ func ValidateInputAndStartSession(args []string, out io.Writer) {
 
 //Execute create data channel and start the session
 func (s *Session) Execute(log log.T) (err error) {
-	fmt.Fprintf(os.Stdout, "\nStarting session with SessionId: %s\n", s.SessionId)
+	// FI
+	//fmt.Fprintf(os.Stdout, "\nStarting session with SessionId: %s\n", s.SessionId)
 
 	// sets the display mode
 	s.DisplayMode = sessionutil.NewDisplayMode(log)

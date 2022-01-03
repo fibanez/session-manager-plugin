@@ -1,5 +1,5 @@
 COPY := cp -p
-GO_BUILD := go build -i
+GO_BUILD := go build
 
 # Default build configuration, can be overridden at build time.
 GOARCH?=$(shell go env GOARCH)
@@ -23,7 +23,7 @@ prepack:: prepack-linux-amd64 prepack-linux-386 prepack-linux-arm64 prepack-wind
 
 package:: create-package-folder package-rpm-amd64 package-rpm-386 package-rpm-arm64 package-deb-amd64 package-deb-386 package-deb-arm package-deb-arm64 package-darwin-amd64 package-win-386 package-win-amd64
 
-release:: clean checkstyle release-test pre-release build prepack package copy-package-dependencies
+release:: clean release-test pre-release build prepack package copy-package-dependencies
 
 clean:: remove-prepacked-folder
 	rm -rf build/* bin/ pkg/ vendor/bin/ vendor/pkg/ .cover/
@@ -59,8 +59,8 @@ pre-build:
 	$(COPY) $(GO_SPACE)/seelog_windows.xml.template $(GO_SPACE)/bin/
 
 	@echo "Regenerate version file during pre-release"
-	go run $(GO_SPACE)/src/version/versiongenerator/version-gen.go
-	$(COPY) $(GO_SPACE)/VERSION $(GO_SPACE)/bin/
+	#go run $(GO_SPACE)/src/version/versiongenerator/version-gen.go
+	#$(COPY) $(GO_SPACE)/VERSION $(GO_SPACE)/bin/
 
 .PHONY: pre-release
 pre-release:
@@ -81,7 +81,7 @@ create-package-folder:
 	mkdir -p $(GO_SPACE)/bin/updates/sessionmanagerplugin/`cat $(GO_SPACE)/VERSION`/
 
 .PHONY: build-linux-amd64
-build-linux-amd64: checkstyle copy-src pre-build
+build-linux-amd64: copy-src pre-build
 	@echo "Build for linux platform"
 	GOOS=linux GOARCH=amd64 $(GO_BUILD) -ldflags "-s -w" -o $(GO_SPACE)/bin/linux_amd64_plugin/session-manager-plugin -v \
 		$(GO_SPACE)/src/sessionmanagerplugin-main/main.go
@@ -89,7 +89,7 @@ build-linux-amd64: checkstyle copy-src pre-build
     		$(GO_SPACE)/src/ssmcli-main/main.go
 
 .PHONY: build-linux-386
-build-linux-386: checkstyle copy-src pre-build
+build-linux-386: copy-src pre-build
 	@echo "Build for linux platform"
 	GOOS=linux GOARCH=386 $(GO_BUILD) -ldflags "-s -w" -o $(GO_SPACE)/bin/linux_386_plugin/session-manager-plugin -v \
 		$(GO_SPACE)/src/sessionmanagerplugin-main/main.go
@@ -97,20 +97,20 @@ build-linux-386: checkstyle copy-src pre-build
     		$(GO_SPACE)/src/ssmcli-main/main.go
 
 .PHONY: build-arm
-build-arm: checkstyle copy-src pre-build
+build-arm: copy-src pre-build
 	@echo "Build for ARM platform"
 	GOOS=linux GOARCH=arm GOARM=6 $(GO_BUILD) -ldflags "-s -w -extldflags=-Wl,-z,now,-z,relro,-z,defs" -o $(GO_SPACE)/bin/linux_arm_plugin/session-manager-plugin -v \
 		$(GO_SPACE)/src/sessionmanagerplugin-main/main.go
 
 .PHONY: build-arm64
-build-arm64: checkstyle copy-src pre-build
+build-arm64: copy-src pre-build
 	@echo "Build for ARM64 platform"
 	GOOS=linux GOARCH=arm64 $(GO_BUILD) -ldflags "-s -w -extldflags=-Wl,-z,now,-z,relro,-z,defs" -o $(GO_SPACE)/bin/linux_arm64_plugin/session-manager-plugin -v \
 		$(GO_SPACE)/src/sessionmanagerplugin-main/main.go
 
 
 .PHONY: build-darwin-amd64
-build-darwin-amd64: checkstyle copy-src pre-build
+build-darwin-amd64: copy-src pre-build
 	@echo "Build for darwin platform"
 	GOOS=darwin GOARCH=amd64 $(GO_BUILD) -ldflags "-s -w" -o $(GO_SPACE)/bin/darwin_amd64_plugin/session-manager-plugin -v \
 		$(GO_SPACE)/src/sessionmanagerplugin-main/main.go
@@ -118,7 +118,7 @@ build-darwin-amd64: checkstyle copy-src pre-build
     		$(GO_SPACE)/src/ssmcli-main/main.go
 
 .PHONY: build-windows-amd64
-build-windows-amd64: checkstyle copy-src pre-build
+build-windows-amd64: copy-src pre-build
 	@echo "Build for windows platform"
 	GOOS=windows GOARCH=amd64 $(GO_BUILD) -ldflags "-s -w" -o $(GO_SPACE)/bin/windows_amd64_plugin/session-manager-plugin.exe -v \
 		$(GO_SPACE)/src/sessionmanagerplugin-main/main.go
@@ -126,7 +126,7 @@ build-windows-amd64: checkstyle copy-src pre-build
     		$(GO_SPACE)/src/ssmcli-main/main.go
 
 .PHONY: build-windows-386
-build-windows-386: checkstyle copy-src pre-build
+build-windows-386: copy-src pre-build
 	@echo "Build for windows platform"
 	GOOS=windows GOARCH=386 $(GO_BUILD) -ldflags "-s -w" -o $(GO_SPACE)/bin/windows_386_plugin/session-manager-plugin.exe -v \
 		$(GO_SPACE)/src/sessionmanagerplugin-main/main.go

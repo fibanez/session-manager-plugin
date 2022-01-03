@@ -15,10 +15,11 @@ fi
 
 # run goimports
 echo "Try update 'goimports'"
-GOPATH=`pwd`/Tools go get golang.org/x/tools/cmd/goimports
+# GOPATH=`pwd`/Tools go get golang.org/x/tools/cmd/goimports
 
-echo "Run 'goimports'"
-unformatted=$(Tools/bin/goimports -l `pwd`/src/)
+#echo "Run 'goimports'"
+#unformatted=$(Tools/bin/goimports -l `pwd`/src/)
+unformatted=$(goimports -l `pwd`/src/)
 if [[ -n $unformatted ]]; then
 	echo >&2 "Error: Found files not formatted by goimports"
 	for f in $unformatted; do
@@ -29,5 +30,5 @@ if [[ -n $unformatted ]]; then
 fi
 
 echo "Run 'go vet'"
-ln -s `pwd` `pwd`/vendor/src/session-manager-plugin
+#ln -s `pwd` `pwd`/vendor/src/session-manager-plugin
 go vet ./src/...

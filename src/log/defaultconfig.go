@@ -31,7 +31,7 @@ func LoadLog(defaultLogDir string, logFile string, errorFile string) []byte {
 	logConfig := `
 <seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="off">
     <exceptions>
-        <exception filepattern="test*" minlevel="error"/>
+        <exception filepattern="test*" minlevel="debug"/>
     </exceptions>
     <outputs formatid="fmtinfo">
         `

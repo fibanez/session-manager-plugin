@@ -18,9 +18,10 @@ import (
 	"fmt"
 	"time"
 
+	"session-manager-plugin/src/sdkutil/retryer"
+
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
-	"session-manager-plugin/src/sdkutil/retryer"
 )
 
 var defaultRegion string

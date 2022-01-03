@@ -5,6 +5,7 @@ package mocks
 
 import (
 	log "session-manager-plugin/src/log"
+
 	mock "github.com/stretchr/testify/mock"
 
 	time "time"

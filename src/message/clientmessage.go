@@ -16,6 +16,7 @@ package message
 
 import (
 	"session-manager-plugin/src/log"
+
 	"github.com/twinj/uuid"
 )
 

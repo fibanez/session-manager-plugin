@@ -25,6 +25,7 @@ import (
 
 	"session-manager-plugin/src/log"
 	"session-manager-plugin/src/message"
+
 	"golang.org/x/sys/windows"
 )
 

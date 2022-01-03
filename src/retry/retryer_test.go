@@ -20,6 +20,7 @@ import (
 	"testing"
 
 	"session-manager-plugin/src/config"
+
 	"github.com/stretchr/testify/assert"
 )
 

@@ -25,6 +25,7 @@ import (
 	"time"
 
 	"session-manager-plugin/src/log"
+
 	"github.com/twinj/uuid"
 )
 

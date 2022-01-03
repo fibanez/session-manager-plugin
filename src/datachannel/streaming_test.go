@@ -23,7 +23,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/aws/aws-sdk-go/service/kms/kmsiface"
 	communicatorMocks "session-manager-plugin/src/communicator/mocks"
 	"session-manager-plugin/src/config"
 	"session-manager-plugin/src/encryption"
@@ -31,6 +30,8 @@ import (
 	"session-manager-plugin/src/log"
 	"session-manager-plugin/src/message"
 	"session-manager-plugin/src/version"
+
+	"github.com/aws/aws-sdk-go/service/kms/kmsiface"
 	"github.com/gorilla/websocket"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"

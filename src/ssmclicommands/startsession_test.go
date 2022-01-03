@@ -18,9 +18,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/service/ssm"
 	"session-manager-plugin/src/log"
 	"session-manager-plugin/src/sessionmanagerplugin/session"
+
+	"github.com/aws/aws-sdk-go/service/ssm"
 
 	"github.com/stretchr/testify/assert"
 )
