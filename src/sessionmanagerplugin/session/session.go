@@ -217,7 +217,8 @@ func ValidateInputAndStartSession(args []string, out io.Writer) {
 
 //Execute create data channel and start the session
 func (s *Session) Execute(log log.T) (err error) {
-	fmt.Fprintf(os.Stdout, "\nStarting session with SessionId: %s\n", s.SessionId)
+	//TODO send message back to channel
+	//fmt.Fprintf(os.Stdout, "\nStarting session with SessionId: %s\n", s.SessionId)
 
 	// sets the display mode
 	s.DisplayMode = sessionutil.NewDisplayMode(log)
@@ -233,9 +234,9 @@ func (s *Session) Execute(log log.T) (err error) {
 		return errors.New("unable to determine SessionType")
 	} else {
 		s.SessionType = s.DataChannel.GetSessionType()
-		fmt.Fprintf(os.Stdout, "\nSessionType. %s\n", s.SessionType)
+		//fmt.Fprintf(os.Stdout, "\nSessionType. %s\n", s.SessionType)
 		s.SessionProperties = s.DataChannel.GetSessionProperties()
-		fmt.Fprintf(os.Stdout, "\nSessionProperties. %s\n", s.SessionProperties)
+		//fmt.Fprintf(os.Stdout, "\nSessionProperties. %s\n", s.SessionProperties)
 		if err = setSessionHandlersWithSessionType(s, log); err != nil {
 			log.Errorf("Session ending with error: %v", err)
 			return
@@ -413,6 +414,7 @@ func (p *MuxPortForwarding) WriteStream(outputMessage message.ClientMessage) err
 
 		if message.ConnectToPortError == flag {
 			fmt.Printf("\nConnection to destination port failed, check SSM Agent logs.\n")
+			//TODO send message back to channel
 		}
 	}
 	return nil
@@ -469,7 +471,7 @@ func (p *MuxPortForwarding) handleControlSignals(log log.T) {
 		if err := p.session.DataChannel.SendFlag(log, message.TerminateSession); err != nil {
 			log.Errorf("Failed to send TerminateSession flag: %v", err)
 		}
-		fmt.Fprintf(os.Stdout, "\n\nExiting session with sessionId: %s.\n\n", p.sessionId)
+		//fmt.Fprintf(os.Stdout, "\n\nExiting session with sessionId: %s.\n\n", p.sessionId)
 		p.Stop()
 	}()
 }
@@ -527,6 +529,7 @@ func (p *MuxPortForwarding) handleClientConnections(log log.T, ctx context.Conte
 
 	log.Infof(displayMsg)
 	fmt.Printf(displayMsg)
+	fmt.Printf("\n")
 
 	// FI
 	//log.Infof("Waiting for connections...\n")
@@ -544,7 +547,8 @@ func (p *MuxPortForwarding) handleClientConnections(log log.T, ctx context.Conte
 				log.Infof("Connection accepted from %s\n for session [%s]", conn.RemoteAddr(), p.sessionId)
 
 				once.Do(func() {
-					fmt.Printf("\nConnection accepted for session [%s]\n", p.sessionId)
+					//fmt.Printf("\nConnection accepted for session [%s]\n", p.sessionId)
+					//TODO send message to channel
 				})
 
 				stream, err := p.muxClient.session.OpenStream()
@@ -690,7 +694,7 @@ func (p *BasicPortForwarding) startLocalConn(log log.T) (err error) {
 		return err
 	}
 	log.Infof("Connection accepted for session %s.", p.sessionId)
-	fmt.Printf("Connection accepted for session %s.\n", p.sessionId)
+	//fmt.Printf("Connection accepted for session %s.\n", p.sessionId)
 
 	p.listener = &listener
 	p.stream = &tcpConn
@@ -733,7 +737,7 @@ func (p *BasicPortForwarding) handleControlSignals(log log.T) {
 			if err := p.session.DataChannel.SendFlag(log, message.TerminateSession); err != nil {
 				log.Errorf("Failed to send TerminateSession flag: %v", err)
 			}
-			fmt.Fprintf(os.Stdout, "\n\nExiting session with sessionId: %s.\n\n", p.sessionId)
+			//fmt.Fprintf(os.Stdout, "\n\nExiting session with sessionId: %s.\n\n", p.sessionId)
 			p.Stop()
 		} else {
 			p.session.TerminateSession(log)
