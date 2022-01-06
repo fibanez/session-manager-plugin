@@ -90,7 +90,8 @@ type StartSessionCommand struct {
 }
 
 //getSSMClient generate ssm client by configuration
-var getSSMClient = func(log log.T, region string, profile string, endpoint string) (*ssm.SSM, error) {
+//var getSSMClient = func(log log.T, region string, profile string, endpoint string) (*ssm.SSM, error) {
+func getSSMClient(log log.T, region string, profile string, endpoint string) (*ssm.SSM, error) {
 	sdkutil.SetRegionAndProfile(region, profile)
 
 	var sdkSession *sdkSession.Session
@@ -103,18 +104,21 @@ var getSSMClient = func(log log.T, region string, profile string, endpoint strin
 }
 
 //executeSession to open datachannel
-var executeSession = func(log log.T, session *session.Session) (err error) {
+//var executeSession = func(log log.T, session *session.Session) (err error) {
+func executeSession(log log.T, session *session.Session) (err error) {
 	return session.Execute(log)
 }
 
 // startSession trigger a sdk start session call.
-var startSession = func(s *StartSessionCommand, input *ssm.StartSessionInput) (*ssm.StartSessionOutput, error) {
+//var startSession = func(s *StartSessionCommand, input *ssm.StartSessionInput) (*ssm.StartSessionOutput, error) {
+func startSession(s *StartSessionCommand, input *ssm.StartSessionInput) (*ssm.StartSessionOutput, error) {
 	return s.sdk.StartSession(input)
 }
 
-func init() {
+/*func init() {
 	utils.Register(&StartSessionCommand{})
 }
+*/
 
 // Name is the command name used in the cli
 func (StartSessionCommand) Name() string {

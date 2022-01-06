@@ -21,7 +21,6 @@ import (
 	"os/signal"
 	"time"
 
-	"session-manager-plugin/src/config"
 	"session-manager-plugin/src/log"
 	"session-manager-plugin/src/message"
 	"session-manager-plugin/src/sessionmanagerplugin/session"
@@ -47,14 +46,15 @@ var GetTerminalSizeCall = func(fd int) (width int, height int, err error) {
 	return terminal.GetSize(fd)
 }
 
-func init() {
+/*func init() {
 	session.Register(&ShellSession{})
-}
+}*/
 
 // Name is the session name used in the plugin
-func (ShellSession) Name() string {
+/*func (ShellSession) Name() string {
 	return config.ShellPluginName
 }
+*/
 
 func (s *ShellSession) Initialize(log log.T, sessionVar *session.Session) {
 	s.Session = *sessionVar

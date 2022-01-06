@@ -89,7 +89,7 @@ func (s *Session) ProcessFirstMessage(log log.T, outputMessage message.ClientMes
 
 // Stop will end the session
 func (s *Session) Stop() {
-	//os.Exit(0)
+	os.Exit(0)
 }
 
 // GetResumeSessionParams calls ResumeSession API and gets tokenvalue for reconnecting
@@ -131,8 +131,7 @@ func (s *Session) ResumeSessionHandler(log log.T) (err error) {
 	} else if s.TokenValue == "" {
 		log.Debugf("Session: %s timed out", s.SessionId)
 		fmt.Fprintf(os.Stdout, "Session: %s timed out.\n", s.SessionId)
-		//os.Exit(0)
-		return
+		os.Exit(0)
 	}
 	s.DataChannel.GetWsChannel().SetChannelToken(s.TokenValue)
 	err = s.DataChannel.Reconnect(log)
