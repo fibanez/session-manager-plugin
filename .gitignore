@@ -10,3 +10,4 @@ build
 /vendor/bin/
 /vendor/pkg/
 .vscode/
+*.swp
