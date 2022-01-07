@@ -4,7 +4,7 @@
 package mocks
 
 import (
-	log "session-manager-plugin/src/log"
+	log "github.com/fibanez/session-manager-plugin/src/log"
 
 	mock "github.com/stretchr/testify/mock"
 

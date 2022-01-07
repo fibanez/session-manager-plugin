@@ -17,9 +17,9 @@ package main
 import (
 	"os"
 
-	"session-manager-plugin/src/sessionmanagerplugin/session"
-	_ "session-manager-plugin/src/sessionmanagerplugin/session/portsession"
-	_ "session-manager-plugin/src/sessionmanagerplugin/session/shellsession"
+	"github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session"
+	_ "github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session/portsession"
+	_ "github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session/shellsession"
 )
 
 func main() {

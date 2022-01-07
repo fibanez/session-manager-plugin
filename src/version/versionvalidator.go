@@ -15,8 +15,8 @@
 package version
 
 import (
-	"session-manager-plugin/src/config"
-	"session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/config"
+	"github.com/fibanez/session-manager-plugin/src/log"
 )
 
 // DoesAgentSupportTCPMultiplexing returns true if given agentVersion supports TCP multiplexing in port plugin, false otherwise

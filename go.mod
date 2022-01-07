@@ -1,4 +1,4 @@
-module session-manager-plugin
+module github.com/fibanez/session-manager-plugin
 
 go 1.17
 

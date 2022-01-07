@@ -21,10 +21,10 @@ import (
 	"os/signal"
 	"time"
 
-	"session-manager-plugin/src/log"
-	"session-manager-plugin/src/message"
-	"session-manager-plugin/src/sessionmanagerplugin/session"
-	"session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
+	"github.com/fibanez/session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/message"
+	"github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session"
+	"github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
 
 	"golang.org/x/crypto/ssh/terminal"
 )

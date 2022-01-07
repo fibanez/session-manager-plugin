@@ -16,8 +16,8 @@ package encryption
 import (
 	"fmt"
 
-	"session-manager-plugin/src/log"
-	"session-manager-plugin/src/sdkutil"
+	"github.com/fibanez/session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/sdkutil"
 
 	sdkSession "github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/kms"

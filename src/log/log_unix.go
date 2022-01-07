@@ -32,7 +32,7 @@ func getApplicationName(clientName string) string {
 	var applicationName string
 	if clientName == "ssmcli" {
 		applicationName = "SSMCLI"
-	} else if clientName == "session-manager-plugin" {
+	} else if clientName == "github.com/fibanez/session-manager-plugin" {
 		applicationName = "sessionmanagerplugin"
 	}
 

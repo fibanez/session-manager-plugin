@@ -24,7 +24,7 @@ import (
 	"strings"
 	"time"
 
-	"session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/log"
 
 	"github.com/twinj/uuid"
 )

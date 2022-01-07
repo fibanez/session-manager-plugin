@@ -17,7 +17,7 @@ package main
 import (
 	"os"
 
-	"session-manager-plugin/src/ssmclicommands"
+	"github.com/fibanez/session-manager-plugin/src/ssmclicommands"
 )
 
 //Created a ssmcli binary, used for testing purpose only.

@@ -6,10 +6,10 @@ package mocks
 import (
 	list "container/list"
 
-	communicator "session-manager-plugin/src/communicator"
-	datachannel "session-manager-plugin/src/datachannel"
-	log "session-manager-plugin/src/log"
-	message "session-manager-plugin/src/message"
+	communicator "github.com/fibanez/session-manager-plugin/src/communicator"
+	datachannel "github.com/fibanez/session-manager-plugin/src/datachannel"
+	log "github.com/fibanez/session-manager-plugin/src/log"
+	message "github.com/fibanez/session-manager-plugin/src/message"
 
 	mock "github.com/stretchr/testify/mock"
 )

@@ -23,8 +23,8 @@ import (
 	"os"
 	"syscall"
 
-	"session-manager-plugin/src/log"
-	"session-manager-plugin/src/message"
+	"github.com/fibanez/session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/message"
 
 	"golang.org/x/sys/windows"
 )

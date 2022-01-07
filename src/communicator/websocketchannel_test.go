@@ -23,7 +23,7 @@ import (
 	"sync"
 	"testing"
 
-	"session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/log"
 
 	"github.com/gorilla/websocket"
 	"github.com/stretchr/testify/assert"

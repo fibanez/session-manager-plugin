@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"io"
 
-	"session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/log"
 
 	"github.com/aws/aws-sdk-go/service/kms/kmsiface"
 )

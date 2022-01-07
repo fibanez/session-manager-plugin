@@ -19,9 +19,9 @@ import (
 	"fmt"
 	"testing"
 
-	wsChannelMock "session-manager-plugin/src/communicator/mocks"
-	dataChannelMock "session-manager-plugin/src/datachannel/mocks"
-	"session-manager-plugin/src/log"
+	wsChannelMock "github.com/fibanez/session-manager-plugin/src/communicator/mocks"
+	dataChannelMock "github.com/fibanez/session-manager-plugin/src/datachannel/mocks"
+	"github.com/fibanez/session-manager-plugin/src/log"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
@@ -44,13 +44,13 @@ func TestValidateInputAndStartSessionWithWrongInputArgument(t *testing.T) {
 	var buffer bytes.Buffer
 	args := []string{1: "version"}
 	ValidateInputAndStartSession(args, &buffer)
-	assert.Contains(t, buffer.String(), "Use session-manager-plugin --version to check the version")
+	assert.Contains(t, buffer.String(), "Use github.com/fibanez/session-manager-plugin --version to check the version")
 }
 
 func TestValidateInputAndStartSession(t *testing.T) {
 	var buffer bytes.Buffer
 	sessionResponse := "{\"SessionId\": \"user-012345\", \"TokenValue\": \"ABCD\", \"StreamUrl\": \"wss://ssmmessages.us-east-1.amazonaws.com/v1/data-channel/user-012345?role=publish_subscribe\"}"
-	args := []string{"session-manager-plugin",
+	args := []string{"github.com/fibanez/session-manager-plugin",
 		sessionResponse,
 		"us-east-1", "StartSession", "", "{\"Target\": \"i-0123abc\"}", "https://ssm.us-east-1.amazonaws.com"}
 	startSession = func(session *Session, log log.T) error {

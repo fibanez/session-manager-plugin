@@ -14,7 +14,7 @@
 // Package sessionutil provides utility for sessions.
 package sessionutil
 
-import "session-manager-plugin/src/log"
+import "github.com/fibanez/session-manager-plugin/src/log"
 
 func NewDisplayMode(log log.T) DisplayMode {
 	displayMode := DisplayMode{}

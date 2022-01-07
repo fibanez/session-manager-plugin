@@ -24,8 +24,8 @@ import (
 	"os/exec"
 	"time"
 
-	"session-manager-plugin/src/log"
-	"session-manager-plugin/src/message"
+	"github.com/fibanez/session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/message"
 )
 
 //disableEchoAndInputBuffering disables echo to avoid double echo and disable input buffering

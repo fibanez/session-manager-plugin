@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/log"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/twinj/uuid"

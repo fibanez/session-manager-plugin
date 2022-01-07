@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"testing"
 
-	"session-manager-plugin/src/log"
-	"session-manager-plugin/src/sessionmanagerplugin/session"
+	"github.com/fibanez/session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session"
 
 	"github.com/aws/aws-sdk-go/service/ssm"
 

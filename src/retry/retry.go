@@ -17,7 +17,7 @@ package retry
 import (
 	"time"
 
-	"session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/log"
 )
 
 const sleepConstant = 2

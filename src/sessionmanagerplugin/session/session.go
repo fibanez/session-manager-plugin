@@ -31,14 +31,14 @@ import (
 	"sync"
 	"time"
 
-	"session-manager-plugin/src/config"
-	"session-manager-plugin/src/datachannel"
-	"session-manager-plugin/src/jsonutil"
-	"session-manager-plugin/src/log"
-	"session-manager-plugin/src/message"
-	"session-manager-plugin/src/retry"
-	"session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
-	"session-manager-plugin/src/version"
+	"github.com/fibanez/session-manager-plugin/src/config"
+	"github.com/fibanez/session-manager-plugin/src/datachannel"
+	"github.com/fibanez/session-manager-plugin/src/jsonutil"
+	"github.com/fibanez/session-manager-plugin/src/log"
+	"github.com/fibanez/session-manager-plugin/src/message"
+	"github.com/fibanez/session-manager-plugin/src/retry"
+	"github.com/fibanez/session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
+	"github.com/fibanez/session-manager-plugin/src/version"
 
 	"github.com/aws/aws-sdk-go/service/ssm"
 	"github.com/twinj/uuid"
@@ -144,7 +144,7 @@ func ValidateInputAndStartSession(args []string, out io.Writer) {
 		ssmEndpoint        string
 		target             string
 	)
-	log := log.Logger(true, "session-manager-plugin")
+	log := log.Logger(true, "github.com/fibanez/session-manager-plugin")
 	uuid.SwitchFormat(uuid.CleanHyphen)
 
 	if len(args) == 1 {
@@ -156,7 +156,7 @@ func ValidateInputAndStartSession(args []string, out io.Writer) {
 		return
 	} else if len(args) >= 2 && len(args) < LegacyArgumentLength {
 		fmt.Fprintf(out, "\nUnknown operation %s. \nUse "+
-			"session-manager-plugin --version to check the version.\n\n", string(args[1]))
+			"github.com/fibanez/session-manager-plugin --version to check the version.\n\n", string(args[1]))
 		return
 
 	} else if len(args) == LegacyArgumentLength {
