@@ -89,7 +89,6 @@ func (s *Session) ProcessFirstMessage(log log.T, outputMessage message.ClientMes
 
 // Stop will end the session
 func (s *Session) Stop() {
-	s.myChannel <- "Quit"
 	//os.Exit(0)
 }
 
