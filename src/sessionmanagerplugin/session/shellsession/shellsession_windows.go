@@ -56,7 +56,7 @@ var specialKeysInputMap = map[keyboard.Key][]byte{
 
 // stop restores the terminal settings and exits
 func (s *ShellSession) Stop() {
-	os.Exit(0)
+	//os.Exit(0)
 }
 
 //handleKeyboardInput handles input entered by customer on terminal

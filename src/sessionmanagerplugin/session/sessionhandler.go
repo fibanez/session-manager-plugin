@@ -89,7 +89,7 @@ func (s *Session) ProcessFirstMessage(log log.T, outputMessage message.ClientMes
 
 // Stop will end the session
 func (s *Session) Stop() {
-	os.Exit(0)
+	//os.Exit(0)
 }
 
 // GetResumeSessionParams calls ResumeSession API and gets tokenvalue for reconnecting
@@ -100,7 +100,11 @@ func (s *Session) GetResumeSessionParams(log log.T) (string, error) {
 		sdkSession          *sdkSession.Session
 	)
 
-	if sdkSession, err = sdkutil.GetNewSessionWithEndpoint(s.Endpoint); err != nil {
+	id := s.Id
+	secret := s.Secret
+	token := s.Token
+
+	if sdkSession, err = sdkutil.GetNewSessionWithEndpoint(id, secret, token); err != nil {
 		return "", err
 	}
 	s.sdk = ssm.New(sdkSession)
@@ -131,7 +135,7 @@ func (s *Session) ResumeSessionHandler(log log.T) (err error) {
 	} else if s.TokenValue == "" {
 		log.Debugf("Session: %s timed out", s.SessionId)
 		fmt.Fprintf(os.Stdout, "Session: %s timed out.\n", s.SessionId)
-		os.Exit(0)
+		//os.Exit(0)
 	}
 	s.DataChannel.GetWsChannel().SetChannelToken(s.TokenValue)
 	err = s.DataChannel.Reconnect(log)
@@ -145,7 +149,11 @@ func (s *Session) TerminateSession(log log.T) error {
 		newSession *sdkSession.Session
 	)
 
-	if newSession, err = sdkutil.GetNewSessionWithEndpoint(s.Endpoint); err != nil {
+	id := s.Id
+	secret := s.Secret
+	token := s.Token
+
+	if newSession, err = sdkutil.GetNewSessionWithEndpoint(id, secret, token); err != nil {
 		log.Errorf("Terminate Session failed: %v", err)
 		return err
 	}

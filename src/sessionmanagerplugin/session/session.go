@@ -37,7 +37,6 @@ import (
 	"session-manager-plugin/src/log"
 	"session-manager-plugin/src/message"
 	"session-manager-plugin/src/retry"
-	"session-manager-plugin/src/sdkutil"
 	"session-manager-plugin/src/sessionmanagerplugin/session/sessionutil"
 	"session-manager-plugin/src/version"
 
@@ -104,6 +103,9 @@ type Session struct {
 	SessionType           string
 	SessionProperties     interface{}
 	DisplayMode           sessionutil.DisplayMode
+	Id                    string
+	Secret                string
+	Token                 string
 }
 
 //startSession create the datachannel for session
@@ -138,9 +140,7 @@ func ValidateInputAndStartSession(args []string, out io.Writer) {
 		session            Session
 		startSessionOutput ssm.StartSessionOutput
 		response           []byte
-		region             string
 		operationName      string
-		profile            string
 		ssmEndpoint        string
 		target             string
 	)
@@ -170,11 +170,11 @@ func ValidateInputAndStartSession(args []string, out io.Writer) {
 		case 1:
 			response = []byte(args[1])
 		case 2:
-			region = args[2]
+			//region = args[2]
 		case 3:
 			operationName = args[3]
 		case 4:
-			profile = args[4]
+			//profile = args[4]
 		case 5:
 			// args[5] is parameters input to aws cli for StartSession api call
 			startSessionRequest := make(map[string]interface{})
@@ -184,7 +184,9 @@ func ValidateInputAndStartSession(args []string, out io.Writer) {
 			ssmEndpoint = args[6]
 		}
 	}
-	sdkutil.SetRegionAndProfile(region, profile)
+
+	//sdkutil.SetRegionAndProfile(region, profile)
+
 	clientId := uuid.NewV4().String()
 
 	switch operationName {
@@ -369,7 +371,7 @@ func (p *MuxPortForwarding) Stop() {
 		p.muxClient.close()
 	}
 	p.cleanUp()
-	os.Exit(0)
+	//os.Exit(0)
 }
 
 // InitializeStreams initializes i/o streams
@@ -466,7 +468,7 @@ func (p *MuxPortForwarding) handleControlSignals(log log.T) {
 	signal.Notify(c, sessionutil.ControlSignals...)
 	go func() {
 		<-c
-		fmt.Println("Terminate signal received, exiting.")
+		//fmt.Println("Terminate signal received, exiting.")
 
 		if err := p.session.DataChannel.SendFlag(log, message.TerminateSession); err != nil {
 			log.Errorf("Failed to send TerminateSession flag: %v", err)
@@ -623,7 +625,7 @@ func (p *BasicPortForwarding) Stop() {
 	if p.stream != nil {
 		(*p.stream).Close()
 	}
-	os.Exit(0)
+	//os.Exit(0)
 }
 
 // InitializeStreams establishes connection and initializes the stream
@@ -780,7 +782,7 @@ func (p *StandardStreamForwarding) IsStreamNotSet() (status bool) {
 func (p *StandardStreamForwarding) Stop() {
 	p.inputStream.Close()
 	p.outputStream.Close()
-	os.Exit(0)
+	//os.Exit(0)
 }
 
 // InitializeStreams initializes the streams with its file descriptors

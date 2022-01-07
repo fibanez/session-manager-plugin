@@ -28,9 +28,9 @@ import (
 // First half 32 bytes key is used by agent for encryption and second half 32 bytes by clients like cli/console
 const KMSKeySizeInBytes int64 = 64
 
-func NewKMSService(log log.T) (kmsService *kms.KMS, err error) {
+func NewKMSService(id string, secret string, token string, log log.T) (kmsService *kms.KMS, err error) {
 	var session *sdkSession.Session
-	if session, err = sdkutil.GetDefaultSession(); err != nil {
+	if session, err = sdkutil.GetNewSessionWithEndpoint(id, secret, token); err != nil {
 		return nil, err
 	}
 

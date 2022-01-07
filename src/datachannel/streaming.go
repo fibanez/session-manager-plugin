@@ -112,6 +112,9 @@ type DataChannel struct {
 
 	// AgentVersion received during handshake
 	agentVersion string
+	Id           string
+	Secret       string
+	Token        string
 }
 
 type ListMessageBuffer struct {
@@ -837,7 +840,11 @@ func (dataChannel *DataChannel) ProcessKMSEncryptionHandshakeAction(log log.T, a
 	log.Info(actionParams)
 	kmsKeyId := kmsEncRequest.KMSKeyID
 
-	kmsService, err := encryption.NewKMSService(log)
+	kmsService, err := encryption.NewKMSService(
+		dataChannel.Id,
+		dataChannel.Secret,
+		dataChannel.Token,
+		log)
 	if err != nil {
 		return fmt.Errorf("error while creating new KMS service, %v", err)
 	}

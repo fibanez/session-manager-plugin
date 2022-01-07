@@ -21,38 +21,38 @@ import (
 	"session-manager-plugin/src/sdkutil/retryer"
 
 	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 )
 
 var defaultRegion string
-var defaultProfile string
 
 // GetNewSessionWithEndpoint creates aws sdk session with given profile, region and endpoint
-func GetNewSessionWithEndpoint(endpoint string) (sess *session.Session, err error) {
+func GetNewSessionWithEndpoint(
+	id string,
+	secret string,
+	token string) (sess *session.Session, err error) {
+
+	sessCredentials := credentials.NewStaticCredentials(id, secret, token)
 	if sess, err = session.NewSessionWithOptions(session.Options{
 		Config: aws.Config{
-			Retryer:    newRetryer(),
-			SleepDelay: sleepDelay,
-			Region:     aws.String(defaultRegion),
-			Endpoint:   aws.String(endpoint),
+			Retryer:     newRetryer(),
+			SleepDelay:  sleepDelay,
+			Region:      aws.String(defaultRegion),
+			Endpoint:    nil,
+			Credentials: sessCredentials,
 		},
 		SharedConfigState: session.SharedConfigEnable,
-		Profile:           defaultProfile,
 	}); err != nil {
 		return nil, fmt.Errorf("Error creating new aws sdk session %s", err)
 	}
 	return sess, nil
 }
 
-// GetDefaultSession creates aws sdk session with given profile and region
-func GetDefaultSession() (sess *session.Session, err error) {
-	return GetNewSessionWithEndpoint("")
-}
-
 // Sets the region and profile for default aws sessions
-func SetRegionAndProfile(region string, profile string) {
+func SetRegionAndProfile(id string, secret string,
+	token string, region string) {
 	defaultRegion = region
-	defaultProfile = profile
 }
 
 var newRetryer = func() aws.RequestRetryer {
